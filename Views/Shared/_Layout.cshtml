@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<style>
+    .side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+        .side-menu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+            .side-menu a:hover {
+                color: #f1f1f1;
+            }
+
+        .side-menu .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+    /* Main content styling */
+    .main-content {
+        transition: margin-left .5s;
+        padding: 16px;
+    }
+
+    /* Style the burger menu icon */
+    .burger-menu {
+        font-size: 30px;
+        cursor: pointer;
+    }
+</style>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Contract Monthly Claims System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ST10187895_PROG6212_PART1.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            
+            <div class="container-fluid">
+                <div class="main-content">
+                    <span class="burger-menu" onclick="openMenu()">&#9776;</span>
+                    
+                </div>
+                <link rel="stylesheet" href="~/css/site.css">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="ClaimHours">Contract Monthly Claims System</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div id="sideMenu" class="side-menu">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-controller="About" asp-action="Index">About</a>
+                <a asp-controller="Contact" asp-action="Index">Contact</a>
+                <a asp-controller="Home" asp-action="ClaimHours">Claim Hours</a>
+                <a asp-controller="Home" asp-action="ReviewClaims">Review Claims</a>
+                <a asp-controller="Home" asp-action="PendingClaims">View Pending Claims</a>
+
+            </div>
+
+           
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - ST10187895_PROG6212_PART1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script> 
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

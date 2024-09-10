@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\PendingClaims.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\PendingClaims.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\DUMMY FILES\timesheet1.pdf" />
+    <None Include="wwwroot\lib\DUMMY FILES\TIMESHEET2.PDF" />
+    <None Include="wwwroot\lib\DUMMY FILES\TIMESHEET3.PDF" />
+  </ItemGroup>
+
+</Project>
