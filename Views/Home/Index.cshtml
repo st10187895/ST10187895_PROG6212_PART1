@@ -132,12 +132,12 @@
 <body>
     <h1>Welcome!</h1>
     <div id="LoginForm">
-        <form class="form" asp-controller="Home" asp-action="LoginUser" method="post">
+        <form class="form" asp-controller="ContractorLogin" asp-action="ValidateUser" method="post">
             <p class="title">Login </p>
             <p1 class="info">Input Your Login Details Below</p1>
             <label>
-                <input placeholder="" type="text" required="required" name="username" class="input">
-                <span>Username</span>
+                <input placeholder="" type="text" required="required" name="personID" class="input">
+                <span>Person ID</span>
             </label>
 
             <label>

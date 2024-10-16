@@ -9,6 +9,13 @@ namespace ST10187895_PROG6212_PART1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(Options =>
+            {
+                Options.IdleTimeout = TimeSpan.FromMinutes(120);
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -21,6 +28,8 @@ namespace ST10187895_PROG6212_PART1
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

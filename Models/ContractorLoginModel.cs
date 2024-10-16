@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace ST10187895_PROG6212_PART1.Models
 {
-    public class LoginModel
+    public class ContractorLoginModel
     {
         public static string con_string = "Server=tcp:st10187895.database.windows.net,1433;Initial Catalog=ST10187895_PROG6212_POE;Persist Security Info=False;User ID=st10187895;Password=MMcCord23$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 

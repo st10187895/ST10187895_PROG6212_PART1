@@ -5,19 +5,19 @@ using System.Diagnostics;
 
 namespace ST10187895_PROG6212_PART1.Controllers
 {
-    public class LoginController : Controller
+    public class ContractorLoginController : Controller
     {
-        private readonly LoginModel Login;
+        private readonly ContractorLoginModel Login;
 
-        public LoginController()
+        public ContractorLoginController()
         {
-            Login = new LoginModel();
+            Login = new ContractorLoginModel();
         }
 
         [HttpPost]
         public ActionResult ValidateUser(string personID, string password)
         {
-            var loginModel = new LoginModel();
+            var loginModel = new ContractorLoginModel();
             string userID = loginModel.findUser(personID, password);
             if (userID != "-1")
             {
@@ -27,7 +27,7 @@ namespace ST10187895_PROG6212_PART1.Controllers
                 //HttpContext.Session.SetInt32("UserID", userID);
 
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("ReviewClaims", "Home");
             }
             else
             {
