@@ -4,151 +4,68 @@
 
 <style>
 
+    /* Basic Reset */
     
-    .form {
-        justify-content:center;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        max-width: 350px;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 20px;
-        position: relative;
-    }
 
-    .title {
-        font-size: 28px;
-        color: royalblue;
-        font-weight: 600;
-        letter-spacing: -1px;
-        position: relative;
+    /* Full-screen layout with space for navbar */
+    body, html {
+        height: 100%;
         display: flex;
+        justify-content: center;
         align-items: center;
-        padding-left: 30px;
+        background-color: #f0f2f5;
+        padding-top: 60px; /* Adjust this value based on your navbar's height */
     }
 
     
 
-        .title::before, .title::after {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            border-radius: 50%;
-            left: 0px;
-            background-color: royalblue;
-        }
-
-        .title::before {
-            width: 18px;
-            height: 18px;
-            background-color: royalblue;
-        }
-
-        .title::after {
-            width: 18px;
-            height: 18px;
-            animation: pulse 1s linear infinite;
-        }
-
-    .message, .signin {
-        color: rgba(88, 87, 87, 0.822);
-        font-size: 14px;
-    }
-
-    .signin {
+    /* Dashboard Container */
+    .dashboard-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
         text-align: center;
+        margin-top: 20px; /* Add margin to separate from navbar */
     }
 
-        .signin a {
-            color: royalblue;
-        }
+    /* Title Styling */
+    .dashboard-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
 
-            .signin a:hover {
-                text-decoration: underline royalblue;
-            }
-
-    .flex {
-        display: flex;
+    /* Button Styling */
+    .dashboard-button {
+        display: block;
         width: 100%;
-        gap: 6px;
-    }
-
-    .form label {
-        position: relative;
-    }
-
-        .form label .input {
-            width: 100%;
-            padding: 10px 10px 20px 10px;
-            outline: 0;
-            border: 1px solid rgba(105, 105, 105, 0.397);
-            border-radius: 10px;
-        }
-
-            .form label .input + span {
-                position: absolute;
-                left: 10px;
-                top: 15px;
-                color: grey;
-                font-size: 0.9em;
-                cursor: text;
-                transition: 0.3s ease;
-            }
-
-            .form label .input:placeholder-shown + span {
-                top: 15px;
-                font-size: 0.9em;
-            }
-
-            .form label .input:focus + span, .form label .input:valid + span {
-                top: 30px;
-                font-size: 0.7em;
-                font-weight: 600;
-            }
-
-            .form label .input:valid + span {
-                color: green;
-            }
-
-    .submit {
-        border: none;
-        outline: none;
+        padding: 15px;
+        margin: 10px 0;
         background-color: royalblue;
-        padding: 10px;
-        border-radius: 10px;
-        color: #fff;
+        color: white;
+        border: none;
+        border-radius: 5px;
         font-size: 16px;
-        transform: .3s ease;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-transform: uppercase;
+        text-decoration: none;
     }
 
-        .submit:hover {
-            background-color: rgb(56, 90, 194);
+        .dashboard-button:hover {
+            background-color:  rgb(56, 90, 194);
         }
-
-    }
 </style>
+
 <body>
-    <h1>Welcome!</h1>
-    <div id="LoginForm">
-        <form class="form" asp-controller="ContractorLogin" asp-action="ValidateUser" method="post">
-            <p class="title">Login </p>
-            <p1 class="info">Input Your Login Details Below</p1>
-            <label>
-                <input placeholder="" type="text" required="required" name="personID" class="input">
-                <span>Person ID</span>
-            </label>
-
-            <label>
-                <input placeholder="" type="text" required="required" name="password" class="input">
-                <span>Password</span>
-            </label>
-
-            <button class="submit">Login</button>
-            <p></p>
-        </form>
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Welcome to the Contract Monthly Claims System</h1>
+        <a href="#" class="dashboard-button">Lecturer</a>
+        <a href="#" class="dashboard-button">Manager</a>
+        <a href="#" class="dashboard-button">Programme Co-ordinator</a>
     </div>
-
 </body>
+
 
