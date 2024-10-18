@@ -121,28 +121,34 @@
     }
 </style>
 <body>
-    <form class="form" asp-controller="User" asp-action="ClaimHours" method="post">
+    <div id="SubmitHoursForm" class="form-container active">
+    <form class="form" asp-controller="SubmitClaim" asp-action="SubmitClaim" method="post">
         <p class="title">Claim Hours </p>
         <p1>Input Claims information Below</p1>
         <label>
-            <input placeholder="" type="text" required="required" name="Contractor ID" class="input">
+            <input placeholder="" type="text" required="required" name="contractorID" class="input">
             <span>Contractor Id</span>
         </label>
 
         <label>
-            <input placeholder="" type="text" required="required" name="Hours" class="input">
+            <input placeholder="" type="text" required="required" name="hoursWorked" class="input">
             <span>Hours Worked</span>
         </label>
         <label>
-            <input placeholder="" type="text" required="required" name="Submission Date" class="input">
-            <span>Submission Date</span>
+            <input placeholder="" type="text" required="required" name="hourlyRate" class="input">
+            <span>Hourly Rate</span>
+        </label>
+        <label>
+            <input placeholder="" type="text" required="" name="notes" class="input">
+            <span>Notes</span>
         </label>
         <label>
             <p1>Upload Timesheets here</p1>
-            <input placeholder="" type="file" required="required" name="TimeSheets" class="input">
+                <input placeholder="" type="file" name="document" class="input">
             
         </label>
         <button class="submit">Submit</button>
         <p></p>
     </form>
+    </div>
 </body>

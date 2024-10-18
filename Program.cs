@@ -8,7 +8,7 @@ namespace ST10187895_PROG6212_PART1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            //builder.Services.AddHttpContextAccessor();
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(Options =>

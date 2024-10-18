@@ -1,38 +1,49 @@
-﻿@{
+﻿@* @model IEnumerable<ReviewClaimsModel>
+ *@
+@{
     ViewData["Title"] = "Pending Claims";
+    var pendingClaims = ViewData["PendingClaims"] as List<ST10187895_PROG6212_PART1.Models.ReviewClaimsModel>;
 }
 <body>
     <h1>Claims Pending Review</h1>
-    <p1>Review Claims information below</p1>
+    <p1>Review pending claims information below</p1>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Claim ID</th>
                 <th scope="col">Contractor ID</th>
                 <th scope="col">Hours</th>
-                <th scope="col">Submission Date</th>
+                <th scope="col">Hourly Rate</th>
+                <th scope="col">Notes</th>
                 <th scope="col">Documentation</th>
-                <th scope="col">Approve</th>
-                <th scope="col">Reject</th>
-
+                <th scope="col">Claim Status</th>
+                <th scope="col">Approve/Reject</th>
+                
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>32</td>
-                <td>35012</td>
-                <td>100</td>
-                <td>20/08/4202</td>
-                <td>
-                    <a href="~/DUMMY FILES/timesheet1.pdf" download>Download</a>
+            @foreach(var pending in pendingClaims)
+            {
+                <tr>
+                    <td>@pending.claimID</td>
+                    <td>@pending.contractorID</td>
+                    <td>@pending.hoursWorked</td>
+                    <td>@pending.hourlyRate</td>
+                    <td>@pending.notes</td>
 
-                </td>
-                <td></td>
-                <td></td>
+                    <td>
+                        <a href="~/DUMMY FILES/timesheet1.pdf" download>Download</a>
 
-            </tr>
+                    </td>
+                    <td>@pending.claimStatus</td>
+                    <td></td>
+                </tr>
 
-            <tr>
+            }
+            
+            
+
+            @* <tr>
                 <td>33</td>
                 <td>35020</td>
                 <td>120</td>
@@ -57,7 +68,7 @@
                 <td></td>
                 <td></td>
 
-            </tr>
+            </tr> *@
         </tbody>
     </table>
 </body>

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ST10187895_PROG6212_PART1.Models;
+using System.Data.SqlClient;
 using System.Diagnostics;
 
 namespace ST10187895_PROG6212_PART1.Controllers
@@ -8,10 +9,13 @@ namespace ST10187895_PROG6212_PART1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
+        private readonly IConfiguration _configuration;
+
+        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -31,11 +35,15 @@ namespace ST10187895_PROG6212_PART1.Controllers
 
         public IActionResult ReviewClaims()
         {
-            return View();
+            List<ReviewClaimsModel> history = ReviewClaimsModel.Previous_Claims();
+            ViewData["ReviewClaims"] = history;
+            return View(); ;
         }
 
         public IActionResult PendingClaims()
         {
+            List<ReviewClaimsModel> pending = ReviewClaimsModel.Pending_Claims();
+            ViewData["PendingClaims"] = pending;
             return View();
         }
 
