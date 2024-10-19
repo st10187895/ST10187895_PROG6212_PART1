@@ -46,7 +46,10 @@ namespace ST10187895_PROG6212_PART1.Controllers
             ViewData["PendingClaims"] = pending;
             return View();
         }
-
+        public IActionResult ManagerView()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

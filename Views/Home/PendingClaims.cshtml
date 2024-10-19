@@ -4,6 +4,37 @@
     ViewData["Title"] = "Pending Claims";
     var pendingClaims = ViewData["PendingClaims"] as List<ST10187895_PROG6212_PART1.Models.ReviewClaimsModel>;
 }
+<style>
+    .approve-button {
+        background-color: #28a745; /* Green */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+        .approve-button:hover {
+            background-color: #218838; /* Darker Green on hover */
+        }
+
+    .reject-button {
+        background-color: #dc3545; /* Red */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+        .reject-button:hover {
+            background-color: #c82333; /* Darker Red on hover */
+        }
+</style>
 <body>
     <h1>Claims Pending Review</h1>
     <p1>Review pending claims information below</p1>
@@ -36,7 +67,10 @@
 
                     </td>
                     <td>@pending.claimStatus</td>
-                    <td></td>
+                    <td> 
+                        <button class="approve-button">Approve</button>
+                        <button class="reject-button">Reject</button>
+                    </td>
                 </tr>
 
             }
