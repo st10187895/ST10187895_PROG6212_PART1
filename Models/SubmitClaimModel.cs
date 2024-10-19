@@ -20,7 +20,7 @@ namespace ST10187895_PROG6212_PART1.Models
         public string notes { get; set; }
 
         public string claimStatus = "pending";
-        public string documentPath { get; set; }
+        public string? documentPath { get; set; }
 
         //public double getHourly(string userID)
         //{
@@ -42,9 +42,9 @@ namespace ST10187895_PROG6212_PART1.Models
         //}
         public int SubmitClaim(SubmitClaimModel c)
         {
-            
             try
             {
+
                 string sql = "INSERT INTO CLAIM(contractorID, hoursWorked, hourlyRate, notes, claimStatus, document) VALUES(@contractorID, @hoursWorked, @hourlyRate, @notes, @claimStatus, @documentPath)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@contractorID", c.contractorID);

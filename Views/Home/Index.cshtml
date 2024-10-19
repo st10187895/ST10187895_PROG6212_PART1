@@ -7,15 +7,15 @@
     /* Basic Reset */
     
 
-    /* Full-screen layout with space for navbar */
+    /*
     body, html {
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: #f0f2f5;
-        padding-top: 60px; /* Adjust this value based on your navbar's height */
-    }
+        padding-top: 60px; /* Adjust this value based on your navbar's height 
+    } */
 
     
 
@@ -62,7 +62,7 @@
 <body>
     <div class="dashboard-container">
         <h1 class="dashboard-title">Welcome to the Contract Monthly Claims System</h1>
-        <a href="#" class="dashboard-button">Lecturer</a>
+        <a asp-controller="Home" asp-action="ClaimHours" class="dashboard-button">Lecturer</a>
         <a href="#" class="dashboard-button">Manager</a>
         <a href="#" class="dashboard-button">Programme Co-ordinator</a>
     </div>

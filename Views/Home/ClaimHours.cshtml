@@ -122,7 +122,7 @@
 </style>
 <body>
     <div id="SubmitHoursForm" class="form-container active">
-    <form class="form" asp-controller="SubmitClaim" asp-action="SubmitClaim" method="post">
+        <form class="form" asp-controller="SubmitClaim" asp-action="SubmitClaim" method="post" enctype="multipart/form-data">
         <p class="title">Claim Hours </p>
         <p1>Input Claims information Below</p1>
         <label>
@@ -144,7 +144,7 @@
         </label>
         <label>
             <p1>Upload Timesheets here</p1>
-                <input placeholder="" type="file" name="document" class="input">
+                <input placeholder="" type="file" name="document" class="input"/>
             
         </label>
         <button class="submit">Submit</button>
