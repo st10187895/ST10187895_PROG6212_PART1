@@ -51,7 +51,7 @@ namespace ST10187895_PROG6212_PART1.Controllers
                     Directory.CreateDirectory(uploadPath);
                 }
 
-                var filePath = Path.Combine(uploadPath, document.FileName);
+                string filePath = Path.Combine(uploadPath, document.FileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
