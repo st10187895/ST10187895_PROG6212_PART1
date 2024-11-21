@@ -130,14 +130,15 @@
             <span>Contractor Id</span>
         </label>
 
-        <label>
-            <input placeholder="" type="text" required="required" name="hoursWorked" class="input">
+        <label for="worked">
+            <input id="worked" placeholder="" type="number" required="required" name="hoursWorked" class="input">
             <span>Hours Worked</span>
         </label>
-        <label>
-            <input placeholder="" type="text" required="required" name="hourlyRate" class="input">
+        <label for="rate">
+            <input id="rate" placeholder="" type="number" required="required" name="hourlyRate" class="input">
             <span>Hourly Rate</span>
         </label>
+            <input type="hidden" id="expectedPay" name="totalAmount" />
         <label>
             <input placeholder="" type="text" required="" name="notes" class="input">
             <span>Notes</span>
@@ -147,8 +148,30 @@
                 <input placeholder="" type="file" name="document" class="input"/>
             
         </label>
+            <div id="result">Total Expected Pay: R 0</div>
+
         <button class="submit">Submit</button> 
         <p></p>
     </form>
     </div>
+    
 </body>
+<script>
+    const worked = document.getElementById('worked');
+    const rate = document.getElementById('rate');
+    const amountDiv = document.getElementById('result');
+    const totalAmount = document.getElementById('expectedPay')
+
+    function updateResult() {
+        const num1 = parseFloat(worked.value) || 0; 
+        const num2 = parseFloat(rate.value) || 0;
+
+        const result = num1 * num2;
+
+        amountDiv.textContent = `Total Expected Pay: R ${result}`;
+        totalAmount.value = result;
+    }
+
+    worked.addEventListener('input', updateResult);
+    rate.addEventListener('input', updateResult);
+</script>

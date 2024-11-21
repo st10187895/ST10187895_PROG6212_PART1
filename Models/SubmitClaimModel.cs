@@ -16,6 +16,8 @@ namespace ST10187895_PROG6212_PART1.Models
         public string contractorID {  get; set; }
         public double hourlyRate { get; set; }
         public double hoursWorked { get; set; }
+        public double totalAmount { get; set; }
+
         //public double amount {  get; set; }
         public string notes { get; set; }
 
@@ -45,7 +47,7 @@ namespace ST10187895_PROG6212_PART1.Models
             try
             {
 
-                string sql = "INSERT INTO CLAIM(contractorID, hoursWorked, hourlyRate, notes, claimStatus, document) VALUES(@contractorID, @hoursWorked, @hourlyRate, @notes, @claimStatus, @documentPath)";
+                string sql = "INSERT INTO CLAIM(contractorID, hoursWorked, hourlyRate, totalAmount, notes, claimStatus, document) VALUES(@contractorID, @hoursWorked, @hourlyRate, @totalAmount, @notes, @claimStatus, @documentPath)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@contractorID", c.contractorID);
                 cmd.Parameters.AddWithValue("@hoursWorked", c.hoursWorked);
@@ -53,6 +55,7 @@ namespace ST10187895_PROG6212_PART1.Models
                 cmd.Parameters.AddWithValue("@notes", c.notes);
                 cmd.Parameters.AddWithValue("@claimStatus", c.claimStatus);
                 cmd.Parameters.AddWithValue("@documentPath", c.documentPath);
+                cmd.Parameters.AddWithValue("@totalAmount", c.totalAmount);
                 con.Open();
                 int rowsAffected = cmd.ExecuteNonQuery();
                 con.Close();
