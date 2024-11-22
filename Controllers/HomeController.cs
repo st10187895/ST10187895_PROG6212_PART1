@@ -40,7 +40,10 @@ namespace ST10187895_PROG6212_PART1.Controllers
         {
             return View();
         }
-
+        public IActionResult UpdateDetails()
+        {
+            return View();
+        }
         public IActionResult ReviewClaims()
         {
             List<ReviewClaimsModel> history = ReviewClaimsModel.Previous_Claims();

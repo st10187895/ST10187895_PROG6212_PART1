@@ -1,0 +1,160 @@
+﻿<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .title {
+        font-size: 28px;
+        color: royalblue;
+        font-weight: 600;
+        letter-spacing: -1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+    }
+
+        .title::before, .title::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: royalblue;
+        }
+
+        .title::before {
+            width: 18px;
+            height: 18px;
+            background-color: royalblue;
+        }
+
+        .title::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
+        }
+
+    .message, .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 14px;
+    }
+
+    .signin {
+        text-align: center;
+    }
+
+        .signin a {
+            color: royalblue;
+        }
+
+            .signin a:hover {
+                text-decoration: underline royalblue;
+            }
+
+    .flex {
+        display: flex;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .form label {
+        position: relative;
+    }
+
+        .form label .input {
+            width: 100%;
+            padding: 10px 10px 20px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+        }
+
+            .form label .input + span {
+                position: absolute;
+                left: 10px;
+                top: 15px;
+                color: grey;
+                font-size: 0.9em;
+                cursor: text;
+                transition: 0.3s ease;
+            }
+
+            .form label .input:placeholder-shown + span {
+                top: 15px;
+                font-size: 0.9em;
+            }
+
+            .form label .input:focus + span, .form label .input:valid + span {
+                top: 30px;
+                font-size: 0.7em;
+                font-weight: 600;
+            }
+
+            .form label .input:valid + span {
+                color: green;
+            }
+
+    .submit {
+        border: none;
+        outline: none;
+        background-color: royalblue;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transform: .3s ease;
+    }
+
+        .submit:hover {
+            background-color: rgb(56, 90, 194);
+        }
+
+    }
+</style>
+<body>
+    <div id="SubmitHoursForm" class="form-container active">
+        <form class="form" asp-controller="AddLecturer" asp-action="AddLecturer" method="post" enctype="multipart/form-data">
+            <p class="title">Claim Hours </p>
+            <p1>Input Claims information Below</p1>
+            <label>
+                <input placeholder="" maxlength="10" type="text" required="required" name="contractorID" class="input">
+                <span>Enter the Contractor Id</span>
+            </label>
+
+            <label>
+                <input id="worked" placeholder="" type="text" required="required" name="name" class="input">
+                <span>Name</span>
+            </label>
+            <label>
+                <input id="rate" placeholder="" type="text" required="required" name="surname" class="input">
+                <span>Surname</span>
+            </label>
+            <label>
+                <input placeholder="" type="text" required="required" name="position" class="input">
+                <span>Position</span>
+            </label>
+            <label>
+                <input placeholder="" type="number" required="required" name="hourlyRate" class="input">
+                <span>hourlyRate</span>
+            </label>
+            <label>
+                <input placeholder="" type="text" required="required" name="password" class="input">
+                <span>password</span>
+            </label>
+            <p>Contractor will be able to change their password after receiving credentials</p>
+
+            <button class="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+
