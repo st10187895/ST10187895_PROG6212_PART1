@@ -18,30 +18,11 @@ namespace ST10187895_PROG6212_PART1.Models
         public double hoursWorked { get; set; }
         public double totalAmount { get; set; }
 
-        //public double amount {  get; set; }
         public string notes { get; set; }
 
         public string claimStatus = "pending";
         public string? documentPath { get; set; }
 
-        //public double getHourly(string userID)
-        //{
-        //    SubmitClaimModel userInfo = new SubmitClaimModel();
-        //    //List<SubmitClaimModel> contractor = new List<SubmitClaimModel>();
-        //    using (SqlConnection con = new SqlConnection(con_string))
-        //    {
-        //        string sql = "SELECT hourlyRate FROM IndependantContractor WHERE contractorID = @";
-        //        SqlCommand cmd = new SqlCommand(sql, con);
-        //        con.Open();
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            userInfo.hourlyRate = Convert.ToDouble(reader["hourlyRate"]);
-        //        }  
-        //        reader.Close();
-        //    }
-        //    return userInfo.hourlyRate;
-        //}
         public int SubmitClaim(SubmitClaimModel c)
         {
             try

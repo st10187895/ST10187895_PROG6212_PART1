@@ -67,43 +67,48 @@
 
                     </td>
                     <td>@pending.claimStatus</td>
-                    <td> 
-                        <button class="approve-button">Approve</button>
-                        <button class="reject-button">Reject</button>
+                    <td>
+                        <button class="approve-button" data-claim-id="@pending.claimID">Approve</button>
+                        <button class="reject-button" data-claim-id="@pending.claimID">Reject</button>
                     </td>
                 </tr>
 
             }
+ 
             
-            
-
-            @* <tr>
-                <td>33</td>
-                <td>35020</td>
-                <td>120</td>
-                <td>22/08/2024</td>
-                <td>
-                    <a href="~/DUMMY FILES/timesheet2.pdf" download>Download</a>
-
-                </td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td>34</td>
-                <td>35003</td>
-                <td>98</td>
-                <td>29/08/2024</td>
-                <td>
-                    <a href="~/DUMMY FILES/timesheet3.pdf" download>Download</a>
-
-                </td>
-                <td></td>
-                <td></td>
-
-            </tr> *@
         </tbody>
     </table>
 </body>
+<script>
+    // Add event listeners to Approve and Reject buttons
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.approve-button, .reject-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', async (event) => {
+                // Extract claimID from the clicked button
+                const claimID = event.target.getAttribute('data-claim-id');
+                // Determine action based on the button clicked
+                const action = event.target.classList.contains('approve-button')
+                    ? 'approved'
+                    : 'rejected';
+
+                // Send the update request to the server
+                const response = await fetch('/UpdateStatus/UpdateClaimStatus', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ claimID, action })
+                });
+
+                if (response.ok) {
+                    // Reload the page or update the UI
+                    location.reload();
+                } else {
+                    alert('Failed to update claim status. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+
 

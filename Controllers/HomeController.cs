@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ST10187895_PROG6212_PART1.Models;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Diagnostics;
 
@@ -46,6 +47,7 @@ namespace ST10187895_PROG6212_PART1.Controllers
             ViewData["PendingClaims"] = pending;
             return View();
         }
+
         public IActionResult ManagerView()
         {
             return View();
@@ -55,5 +57,6 @@ namespace ST10187895_PROG6212_PART1.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
