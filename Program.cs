@@ -1,9 +1,14 @@
+using QuestPDF.Infrastructure;
+
+
 namespace ST10187895_PROG6212_PART1
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            QuestPDF.Settings.License = LicenseType.Community;
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.

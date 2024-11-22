@@ -16,23 +16,7 @@ namespace ST10187895_PROG6212_PART1.Controllers
         public ManageClaimsModel _update = new ManageClaimsModel();
 
         [HttpPost]
-        public async Task<IActionResult> ApproveClaim(ManageClaimsModel approve)
-        {
-            ManageClaimsModel _update = approve;
-
-            var result = _update.ApproveClaim(approve);
-
-            return RedirectToAction("ReviewClaims", "Home");
-        }
-
-        public async Task<IActionResult> RejectClaim(ManageClaimsModel reject)
-        {
-            ManageClaimsModel _update = reject;
-
-            var result = _update.RejectClaim(reject);
-
-            return RedirectToAction("ReviewClaims", "Home");
-        }
+        
         //public async Task<IActionResult> UpdateClaim(ManageClaimsModel update)
         //{
         //    ManageClaimsModel _update = update;

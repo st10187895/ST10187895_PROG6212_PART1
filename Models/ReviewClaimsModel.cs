@@ -11,14 +11,43 @@ namespace ST10187895_PROG6212_PART1.Models
 
         public int claimID { get; set; }
         public string contractorID { get; set; }
+        public string contractorName {  get; set; }
         public double hourlyRate { get; set; }
         public double hoursWorked { get; set; }
-        //public double amount {  get; set; }
+        public double totalAmount {  get; set; }
         public string notes { get; set; }
 
         public string claimStatus = "pending";
         public string documentPath { get; set; }
 
+        public static ReviewClaimsModel GetClaimByID(int CLAIMiD)
+        {
+            ReviewClaimsModel claim = null;
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                string sql = "SELECT claimID, contractorID, hourlyRate, hoursWorked, totalAmount, notes, claimStatus, document FROM Claim WHERE claimID = @claimID";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@claimID", CLAIMiD); // Bind parameter
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    claim = new ReviewClaimsModel();
+                    claim.claimID = Convert.ToInt32(reader["claimID"]);
+                    claim.contractorID = reader["contractorID"].ToString();
+                    claim.hourlyRate = Convert.ToDouble(reader["hourlyRate"]);
+                    claim.hoursWorked = Convert.ToDouble(reader["hoursWorked"]);
+                    claim.notes = reader["notes"].ToString();
+                    claim.claimStatus = reader["claimStatus"].ToString();
+                    claim.documentPath = reader["document"].ToString();
+
+                }
+
+            }
+            return claim;
+        }
 
         public static List<ReviewClaimsModel> Pending_Claims()
         {
@@ -55,7 +84,7 @@ namespace ST10187895_PROG6212_PART1.Models
 
             using (SqlConnection con = new SqlConnection(con_string))
             {
-                string sql = "SELECT claimID, contractorID, hourlyRate, hoursWorked, notes, claimStatus, document FROM Claim WHERE claimStatus = 'pending'";
+                string sql = "SELECT claimID, contractorID, hourlyRate, hoursWorked, notes, claimStatus, document FROM Claim";
                 SqlCommand cmd = new SqlCommand(sql, con);
 
                 con.Open();
