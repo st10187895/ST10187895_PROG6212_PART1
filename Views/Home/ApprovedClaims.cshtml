@@ -3,7 +3,7 @@
 *@
 @{
     ViewData["Title"] = "Review Claims";
-    var claimsHistory = ViewData["ReviewClaims"] as List<ST10187895_PROG6212_PART1.Models.ReviewClaimsModel>;
+    var Approvedclaims = ViewData["ReviewClaims"] as List<ST10187895_PROG6212_PART1.Models.ReviewClaimsModel>;
 }
 <body>
     <h1>Claims Review</h1>
@@ -16,13 +16,14 @@
                 <th scope="col">Hours Worked</th>
                 <th scope="col">Documentation</th>
                 <th scope="col">Claim Status</th>
+                <th scope="col">Invoice</th>
 
 
 
             </tr>
         </thead>
         <tbody>
-            @foreach (var claim in claimsHistory)
+            @foreach (var claim in Approvedclaims)
             {
                 <tr>
                     <td>@claim.claimID</td>
@@ -33,12 +34,14 @@
 
                     </td>
                     <td>@claim.claimStatus</td>
-                    
-                    
+
+                    <td>
+                        <a href="/Home/DownloadInvoice?claimID=@claim.claimID" class="btn btn-primary">Download Invoice</a>
+                    </td>
                 </tr>
 
             }
-            
+
         </tbody>
     </table>
 </body>

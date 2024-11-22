@@ -78,6 +78,34 @@ namespace ST10187895_PROG6212_PART1.Models
             return pendingClaims;
         }
 
+        public static List<ReviewClaimsModel> Approved_Claims()
+        {
+            List<ReviewClaimsModel> approved = new List<ReviewClaimsModel>();
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                string sql = "SELECT claimID, contractorID, hourlyRate, hoursWorked, notes, claimStatus, document FROM Claim WHERE claimStatus = 'Approved'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    ReviewClaimsModel approvedClaim = new ReviewClaimsModel();
+                    approvedClaim.claimID = Convert.ToInt32(reader["claimID"]);
+                    approvedClaim.contractorID = reader["contractorID"].ToString();
+                    approvedClaim.hourlyRate = Convert.ToDouble(reader["hourlyRate"]);
+                    approvedClaim.hoursWorked = Convert.ToDouble(reader["hoursWorked"]);
+                    approvedClaim.notes = reader["notes"].ToString();
+                    approvedClaim.claimStatus = reader["claimStatus"].ToString();
+                    approvedClaim.documentPath = reader["document"].ToString();
+
+                    approved.Add(approvedClaim);
+                }
+
+            }
+            return approved;
+        }
         public static List<ReviewClaimsModel> Previous_Claims()
         {
             List<ReviewClaimsModel> claimsHistory = new List<ReviewClaimsModel>();

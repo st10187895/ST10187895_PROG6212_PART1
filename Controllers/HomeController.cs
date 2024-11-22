@@ -36,6 +36,11 @@ namespace ST10187895_PROG6212_PART1.Controllers
             return View();
         }
 
+        public IActionResult HumanResources()
+        {
+            return View();
+        }
+
         public IActionResult ReviewClaims()
         {
             List<ReviewClaimsModel> history = ReviewClaimsModel.Previous_Claims();
@@ -48,6 +53,13 @@ namespace ST10187895_PROG6212_PART1.Controllers
             List<ReviewClaimsModel> pending = ReviewClaimsModel.Pending_Claims();
             ViewData["PendingClaims"] = pending;
             return View();
+        }
+
+        public IActionResult ApprovedClaims()
+        {
+            List<ReviewClaimsModel> approved = ReviewClaimsModel.Approved_Claims();
+            ViewData["ReviewClaims"] = approved;
+            return View(); ;
         }
 
         public IActionResult ManagerView()
